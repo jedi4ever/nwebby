@@ -8,7 +8,8 @@ var fixturize = function(baseDir, filepath) {
   return {
     filename: path.join(__dirname, 'fixtures', baseDir, filepath),
     options: {
-      baseDir: path.join(__dirname, 'fixtures', baseDir)
+      baseDir: path.join(__dirname, 'fixtures', baseDir),
+      templateDir: path.join(__dirname, 'fixtures', 'templates')
     }
   };
 };
@@ -28,6 +29,16 @@ describe('Rendering', function() {
     nwebby.render(fixture.filename,fixture.options, function(err, result) {
       expect(err).to.be(null);
       expect(result).to.contain('sectionA');
+      done();
+    });
+  });
+
+  it('with a layout defined', function(done) {
+    var fixture = fixturize('simple','page_with_layout.txt');
+    nwebby.render(fixture.filename,fixture.options, function(err, result) {
+      expect(err).to.be(null);
+      expect(result).to.contain('Page content');
+      expect(result).to.contain('Page Title');
       done();
     });
   });
