@@ -14,7 +14,7 @@ var fixturize = function(baseDir, filepath) {
 };
 
 describe('Rendering', function() {
-  it('should work on a plain file', function(done) {
+  it('with a page variable', function(done) {
     var fixture = fixturize('simple','variable_from_page.txt');
     nwebby.render(fixture.filename,fixture.options, function(err, result) {
       expect(err).to.be(null);
@@ -23,25 +23,13 @@ describe('Rendering', function() {
     });
   });
 
-  it('should read the directory yaml a plain file', function(done) {
+  it('with a directory yaml variable', function(done) {
     var fixture = fixturize('simple','variable_from_directory_yaml.txt');
-    nwebby.readYamls(fixture.filename,fixture.options, function(err,result) {
-      expect(err).to.be(null);
-      var context = {
-        settings: {
-          section: 'sectionA'
-        }
-      };
-      expect(result).to.eql(context);
-      done();
-    });
-    /*
     nwebby.render(fixture.filename,fixture.options, function(err, result) {
       expect(err).to.be(null);
-      expect(result).to.contain('Hello World');
+      expect(result).to.contain('sectionA');
       done();
     });
-    */
   });
 
 });
