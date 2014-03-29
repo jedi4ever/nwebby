@@ -1,0 +1,5 @@
+---
+title: post1
+blog_post: true
+---
+content1
