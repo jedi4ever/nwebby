@@ -42,4 +42,13 @@ describe('Rendering', function() {
     });
   });
 
+  it('with a nil layout', function(done) {
+    var fixture = fixturize('simple','page_with_nil_layout.txt');
+    nwebby.render(fixture.filename,fixture.options, function(err, result) {
+      expect(err).to.be(null);
+      expect(result).to.contain('this is content');
+      done();
+    });
+  });
+
 });
