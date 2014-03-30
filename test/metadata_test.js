@@ -62,4 +62,22 @@ describe('Metadata Detection', function() {
       done();
     });
   });
+
+  it('should detect metadata file_with_separator+trailingspaces', function(done) {
+    var filename = fullPath('file_with_separator+trailingspaces.txt');
+    nwebby.hasMetadata(filename,function(err,detectedMetadata) {
+      expect(err).to.be(null);
+      expect(detectedMetadata).to.be(true);
+      done();
+    });
+  });
+
+  it('should not error on file_with_separator+trailingspaces', function(done) {
+    var filename = fullPath('file_with_separator+trailingspaces.txt');
+    nwebby.getMetadata(filename,function(err,metadata) {
+      expect(err).to.be(null);
+      expect(metadata).to.eql('bla');
+      done();
+    });
+  });
 });
