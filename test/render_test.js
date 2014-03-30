@@ -34,11 +34,10 @@ describe('Rendering', function() {
   });
 
   it('with a layout defined', function(done) {
-    var fixture = fixturize('simple','page_with_layout.txt');
+    var fixture = fixturize('simple','file_with_layout_metadata.txt');
     nwebby.render(fixture.filename,fixture.options, function(err, result) {
       expect(err).to.be(null);
-      expect(result).to.contain('Page content');
-      expect(result).to.contain('Page Title');
+      expect(result).to.contain('Extension: html');
       done();
     });
   });
