@@ -1,5 +1,6 @@
 ---
 title: post2
 blog_post: true
+created_at: 2013-01-22 10:35:34.199577 +02:00
 ---
 content2

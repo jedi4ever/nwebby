@@ -20,11 +20,13 @@ describe('BlogPosts', function() {
     var fixture = fixturize('blogposts','variable_from_directory_yaml.txt');
     nwebby.readBlogs(fixture.options, function(err,result) {
       expect(err).to.be(null);
-      /*
-      var expected = [
-        { title: 'page'}
-      ];
-      */
+
+      // Should be sorted by last date, first
+
+      // Blogposts don't render the default layout
+      expect(result[0].content).not.to.contain('The default layout');
+      
+      // Find two blogposts
       expect(result.length).to.be(2);
       return done();
     });
