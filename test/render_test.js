@@ -51,4 +51,26 @@ describe('Rendering', function() {
     });
   });
 
+  it('with additional Metatadata', function(done) {
+    var fixture = fixturize('simple','page_with_additional_metadata.txt');
+    fixture.options.metadata = {
+      somemetadata: 'bla1'
+    };
+    nwebby.render(fixture.filename,fixture.options, function(err, result) {
+      expect(err).to.be(null);
+      expect(result).to.contain('bla1');
+      done();
+    });
+  });
+
+  it('with noLayout', function(done) {
+    var fixture = fixturize('simple','page_with_additional_metadata.txt');
+    fixture.options.noLayout = true;
+    nwebby.render(fixture.filename,fixture.options, function(err, result) {
+      expect(err).to.be(null);
+      expect(result).not.to.contain('a simple page');
+      done();
+    });
+  });
+
 });

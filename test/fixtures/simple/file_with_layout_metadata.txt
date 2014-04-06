@@ -1,0 +1,5 @@
+---
+title: a page
+layout: layout_with_metadata
+---
+Extension: {{ page.extension }}

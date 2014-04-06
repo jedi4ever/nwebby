@@ -1,0 +1,5 @@
+---
+layout: nil
+title: page with nil layout
+---
+this is content
