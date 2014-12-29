@@ -135,4 +135,18 @@ describe('Metadata Detection', function() {
     });
   });
 
+  it('should have the correct page.uri for an index page in a subdirectory', function(done) {
+    var fixture = fixturize('simple','/subdir/index.txt');
+    nwebby.getMetadata(fixture.filename,fixture.options, function(err, result) {
+      expect(err).to.be(null);
+      expect(result).to.eql({
+        extension: 'html',
+        layout: 'default',
+        url: '/subdir/',
+        title: 'subdirpage',
+      });
+      done();
+    });
+  });
+
 });
