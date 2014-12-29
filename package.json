@@ -1,6 +1,6 @@
 {
   "name": "nwebby",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "main": "lib/nwebby.js",
   "description": "Webby Clone",
   "author": {
