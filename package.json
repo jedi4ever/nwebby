@@ -12,7 +12,7 @@
       "type": "MIT"
     }
   ],
-  "keywords": [],
+  "keywords": [ "webby", "markdown", "blog"],
   "devDependencies": {
     "assert": "^1.1.1",
     "expect.js": "^0.3.1",
