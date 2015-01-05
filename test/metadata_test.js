@@ -142,7 +142,7 @@ describe('Metadata Detection', function() {
       expect(result).to.eql({
         extension: 'html',
         layout: 'default',
-        url: '/subdir/',
+        url: '/subdir',
         title: 'subdirpage',
       });
       done();

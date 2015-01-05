@@ -73,4 +73,15 @@ describe('Rendering', function() {
     });
   });
 
+  it('page.url', function(done) {
+    var fixture = fixturize('simple/page_url','index.markdown');
+    fixture.options.baseDir=path.join(__dirname, 'fixtures', 'simple');
+    //fixture.options.noLayout = true;
+    nwebby.render(fixture.filename,fixture.options, function(err, result) {
+      expect(err).to.be(null);
+      expect(result).to.contain('<p>&#x2F;page_url/bla</p>');
+      done();
+    });
+  });
+
 });
