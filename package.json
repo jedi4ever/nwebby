@@ -13,7 +13,8 @@
     }
   ],
   "bin": {
-    "nwebby": "./bin/nwebby.js"
+    "nwebby": "./bin/nwebby.js",
+    "nwebby-watch": "./bin/nwebby-watch.js"
   },
   "keywords": [
     "webby",
