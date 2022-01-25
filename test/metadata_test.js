@@ -7,6 +7,7 @@ var path = require('path');
 var fullPath = function(filepath) {
   return path.join(__dirname, 'fixtures', filepath);
 };
+
 var options = {
   baseDir: path.join(__dirname,'fixtures'),
   templateDir: path.join(__dirname, 'fixtures', 'templates')
