@@ -1,6 +1,6 @@
 'use strict';
 
-var expect = require('expect.js');
+var expect = require('chai').expect;
 var nwebby = require('..');
 var path = require('path');
 
@@ -25,13 +25,13 @@ describe('Rss', function() {
     options.language = 'en';
 
     nwebby.rss(fixture.options, function(err,result) {
-      expect(err).to.be(null);
+      expect(err).to.be.null;
       /*
       var expected = [
         { title: 'page'}
       ];
       */
-      expect(result.Feed.Items.length).to.be(2);
+      expect(result.Feed.Items.length).to.equal(2);
       return done();
     });
   });

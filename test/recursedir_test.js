@@ -1,10 +1,10 @@
 'use strict';
 
-var expect = require('expect.js');
+var expect = require('chai').expect;
 var nwebby = require('..');
 
 describe('Directory Recurse', function() {
-  it('should return an arry of directory paths', function(done) {
+  it('should return an array of directory paths', function(done) {
     var baseDir = '/opt';
     var file = '/opt/dira/dirb/dirc/file';
 
@@ -15,7 +15,7 @@ describe('Directory Recurse', function() {
       '/opt/dira/dirb/dirc'
     ];
     var dirs = nwebby.recurseDir(baseDir, file);
-    expect(dirs).to.eql(expectedDirs);
+    expect(dirs).to.deep.equal(expectedDirs);
     done();
   });
 });

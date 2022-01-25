@@ -1,6 +1,6 @@
 'use strict';
 
-var expect = require('expect.js');
+var expect = require('chai').expect;
 var nwebby = require('..');
 var path = require('path');
 
@@ -18,7 +18,7 @@ describe('Rendering', function() {
   it('with a page variable', function(done) {
     var fixture = fixturize('simple','variable_from_page.txt');
     nwebby.render(fixture.filename,fixture.options, function(err, result) {
-      expect(err).to.be(null);
+      expect(err).to.be.null;
       expect(result).to.contain('Hello World');
       done();
     });
@@ -27,7 +27,7 @@ describe('Rendering', function() {
   it('with a directory yaml variable', function(done) {
     var fixture = fixturize('simple','variable_from_directory_yaml.txt');
     nwebby.render(fixture.filename,fixture.options, function(err, result) {
-      expect(err).to.be(null);
+      expect(err).to.null;
       expect(result).to.contain('sectionA');
       done();
     });
@@ -36,7 +36,7 @@ describe('Rendering', function() {
   it('with a layout defined', function(done) {
     var fixture = fixturize('simple','file_with_layout_metadata.txt');
     nwebby.render(fixture.filename,fixture.options, function(err, result) {
-      expect(err).to.be(null);
+      expect(err).to.be.null;
       expect(result).to.contain('Extension: html');
       done();
     });
@@ -45,7 +45,7 @@ describe('Rendering', function() {
   it('with a nil layout', function(done) {
     var fixture = fixturize('simple','page_with_nil_layout.txt');
     nwebby.render(fixture.filename,fixture.options, function(err, result) {
-      expect(err).to.be(null);
+      expect(err).to.be.null;
       expect(result).to.contain('this is content');
       done();
     });
@@ -57,7 +57,7 @@ describe('Rendering', function() {
       somemetadata: 'bla1'
     };
     nwebby.render(fixture.filename,fixture.options, function(err, result) {
-      expect(err).to.be(null);
+      expect(err).to.be.null;
       expect(result).to.contain('bla1');
       done();
     });
@@ -67,7 +67,7 @@ describe('Rendering', function() {
     var fixture = fixturize('simple','page_with_additional_metadata.txt');
     fixture.options.noLayout = true;
     nwebby.render(fixture.filename,fixture.options, function(err, result) {
-      expect(err).to.be(null);
+      expect(err).to.be.null;
       expect(result).not.to.contain('a simple page');
       done();
     });
@@ -78,7 +78,7 @@ describe('Rendering', function() {
     fixture.options.baseDir=path.join(__dirname, 'fixtures', 'simple');
     //fixture.options.noLayout = true;
     nwebby.render(fixture.filename,fixture.options, function(err, result) {
-      expect(err).to.be(null);
+      expect(err).to.be.null;
       expect(result).to.contain('<p>&#x2F;page_url/bla</p>');
       done();
     });
