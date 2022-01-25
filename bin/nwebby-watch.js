@@ -8,6 +8,9 @@ const { resolvePath } = require('../lib/util/resolvePath');
 const path = require('path');
 
 const chokidar = require('chokidar');
+const { basename } = require("path");
+
+const { invalidatePartials }  = require('../lib/readPartials');
 
 
 let srcArg = myArgs[0];
@@ -31,9 +34,18 @@ watcher
   .on('change', (filePath) => {
       console.log(`File ${filePath} has been added`)
       // make relative to srcDir
-      const relativePath = path.relative(srcDir,filePath)
-      console.log(relativePath);
-      cli.renderDir(srcDir,destDir, relativePath);
+      const relativePath = path.relative(srcDir,filePath);
+
+      let baseName = path.basename(relativePath);
+      if (baseName.startsWith("_")) {
+        console.log("got partial - re-render all");
+        invalidatePartials();
+        cli.renderDir(srcDir,destDir);
+
+      } else {
+        cli.renderDir(srcDir,destDir, relativePath);
+
+      }
 
   })
 //  .on('change', path => log(`File ${path} has been changed`))
